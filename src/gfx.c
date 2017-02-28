@@ -80,7 +80,6 @@ int initGFX(char* title, unsigned int width, unsigned int height) {
 
     window = SDL_CreateWindow(title, 50, 50, width, height, SDL_WINDOW_SHOWN);
     renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_SOFTWARE);
-    /*SDL_CreateWindowAndRenderer(width, height, SDL_WINDOW_SHOWN, &window, &renderer);*/
 
     if(!window || !renderer) {
         gfxSetError("Could not create SDL window", 1);

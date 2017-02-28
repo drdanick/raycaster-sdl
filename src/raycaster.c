@@ -15,12 +15,14 @@ RayTuple rays[VIEWPLANE_LENGTH];
 void initializeRayDirections() {
     int i;
     Vector3f v1,v2,v3;
+
     for(i = 0; i < VIEWPLANE_LENGTH; i++) {
         v1 = homogeneousVectorScale(&playerDir, distFromViewplane);
         v2 = homogeneousVectorScale(&viewplaneDir, ((VIEWPLANE_LENGTH / 2) - i));
         v3 = vectorSubtract(&v1, &v2);
         rays[i].hRay = normalizeVector(&v3);
         rays[i].vRay = normalizeVector(&v3);
+
 		if (rayCastMode == ONLY_NORMALIZED) {
 			rays[i].hRay = homogeneousVectorScale(&rays[i].hRay, 40);
 			rays[i].vRay = homogeneousVectorScale(&rays[i].vRay, 40);
@@ -111,6 +113,7 @@ void updateRaycaster() {
 
 	if (rayCastMode == ONLY_NORMALIZED)
 		return;
+
     /* Extend the rays to their first hits */
     extendRaysToFirstHit(rays);
 	if (rayCastMode == ONLY_FIRST_HIT)

@@ -12,17 +12,16 @@ float calculateDrawHeight(float rayLength) {
 
 void drawUntexturedStrip(int x, float wallYStart, float length, Uint32 ABGRColor, char darken) {
     int y;
+
     if(wallYStart < 0)
         wallYStart = 0;
 
     for(y = 0; y < WINDOW_HEIGHT; y++) {
-        if(y < wallYStart)
+        if(y < wallYStart) {
             screenBuffer[XY_TO_SCREEN_INDEX(x, y)] = CEILING_COLOR;
-
-        else if(y > (wallYStart + length))
+        } else if(y > (wallYStart + length)) {
             screenBuffer[XY_TO_SCREEN_INDEX(x, y)] = FLOOR_COLOR;
-
-        else {
+        } else {
             screenBuffer[XY_TO_SCREEN_INDEX(x, y)] = (darken) ? ABGRColor : DARKEN_COLOR(ABGRColor);
         }
     }
@@ -40,13 +39,11 @@ void drawTexturedStrip(int x, float wallYStart, float length, int textureX, Uint
         d = y - (WINDOW_HEIGHT / 2.0f) + length / 2.0f;
         ty = d * (float)(TEXTURE_SIZE-EPS) / length;
 
-        if(y < wallYStart)
+        if(y < wallYStart) {
             screenBuffer[XY_TO_SCREEN_INDEX(x, y)] = CEILING_COLOR;
-
-        else if(y > (wallYStart + length))
+        } else if(y > (wallYStart + length)) {
             screenBuffer[XY_TO_SCREEN_INDEX(x, y)] = FLOOR_COLOR;
-
-        else {
+        } else {
             color = texture[XY_TO_TEXTURE_INDEX(textureX, (int)ty)];
             if(darken) color = DARKEN_COLOR(color);
 
@@ -82,13 +79,13 @@ float getUndistortedRayLength(Vector3f* ray) {
 void renderProjectedScene() {
     int i;
 
-	if (slowRenderMode) {
-		int x, y;
+    if (slowRenderMode) {
+        int x, y;
 
-		for(x = 0; x < WINDOW_WIDTH; x++)
-			for(y = 0; y < WINDOW_HEIGHT; y++)
-				screenBuffer[(WINDOW_WIDTH * y) + x] = 0xFFFFFFFF;
-	}
+        for(x = 0; x < WINDOW_WIDTH; x++)
+            for(y = 0; y < WINDOW_HEIGHT; y++)
+                screenBuffer[(WINDOW_WIDTH * y) + x] = 0xFFFFFFFF;
+    }
 
     for(i = 0; i < WINDOW_WIDTH; i++) {
         int textureX = 0;
@@ -136,14 +133,14 @@ void renderProjectedScene() {
                 color = 4;
             drawUntexturedStrip(i, (WINDOW_HEIGHT / 2.0f) - (drawLength / 2.0f), drawLength, COLORS[color - 1], rtype == HORIZONTAL_RAY);
         }
-		if (slowRenderMode) {
-			clearRenderer();
-			displayFullscreenTexture(screenBuffer);
-			SDL_Delay(2);
-		}
+        if (slowRenderMode) {
+            clearRenderer();
+            displayFullscreenTexture(screenBuffer);
+            SDL_Delay(2);
+        }
     }
-	if (slowRenderMode)
-		slowRenderMode = 0;
+    if (slowRenderMode)
+        slowRenderMode = 0;
 
     clearRenderer();
     displayFullscreenTexture(screenBuffer);
