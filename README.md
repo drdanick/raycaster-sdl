@@ -66,6 +66,13 @@ The Ray Caster accepts the following controls:
 `escape`  Quit the game.
 
 
+Screenshots
+-----------
+
+![untextured](screenshots/untextured.png) ![textured](screenshots/textured.png)
+![map](screenshots/map.png)
+
+
 Licence
 -------
 
