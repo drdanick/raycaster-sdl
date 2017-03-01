@@ -23,10 +23,10 @@ void initializeRayDirections() {
         rays[i].hRay = normalizeVector(&v3);
         rays[i].vRay = normalizeVector(&v3);
 
-		if (rayCastMode == ONLY_NORMALIZED) {
-			rays[i].hRay = homogeneousVectorScale(&rays[i].hRay, 40);
-			rays[i].vRay = homogeneousVectorScale(&rays[i].vRay, 40);
-		}
+        if (rayCastMode == ONLY_NORMALIZED) {
+            rays[i].hRay = homogeneousVectorScale(&rays[i].hRay, 40);
+            rays[i].vRay = homogeneousVectorScale(&rays[i].vRay, 40);
+        }
     }
 }
 
@@ -111,13 +111,13 @@ void updateRaycaster() {
     /* Update the rays */
     initializeRayDirections();
 
-	if (rayCastMode == ONLY_NORMALIZED)
-		return;
+    if (rayCastMode == ONLY_NORMALIZED)
+        return;
 
     /* Extend the rays to their first hits */
     extendRaysToFirstHit(rays);
-	if (rayCastMode == ONLY_FIRST_HIT)
-		return;
+    if (rayCastMode == ONLY_FIRST_HIT)
+        return;
 
     /* Perform raycasting */
     raycast(rays);
@@ -142,7 +142,7 @@ Vector3f getTileCoordinateForHorizontalRay(Vector3f* ray) {
     return coord;
 }
 
-void setupRaycaster() {
+void initRaycaster() {
 
     /* Infer viewplane distance from a given field of view angle */
     distFromViewplane = (WINDOW_WIDTH / 2.0f) / (float)(tan(FOV / 2.0f));

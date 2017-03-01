@@ -87,7 +87,7 @@ int clipMovement(float dx, float dy) {
     return FALSE;
 }
 
-void setupPlayer() {
+void initPlayer() {
     int row, col;
 
     /* Search for player position in map */

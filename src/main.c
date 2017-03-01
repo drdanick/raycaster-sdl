@@ -173,8 +173,8 @@ int main(int argc, char** argv) {
         fprintf(stderr, "Could not initialize raycaster!\n");
         return EXIT_FAILURE;
     }
-    setupPlayer();
-    setupRaycaster();
+    initPlayer();
+    initRaycaster();
     runGame();
 
     destroyGFX();

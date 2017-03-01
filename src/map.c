@@ -46,14 +46,14 @@ void renderOverheadMap() {
             ray = rays[i].vRay;
         drawLine((int)(playerPos.x * HUD_MAP_SIZE / (float)MAP_PIXEL_WIDTH) + mapXOffset, (int)(playerPos.y * HUD_MAP_SIZE / (float)MAP_PIXEL_HEIGHT + mapYOffset),
                 (int)((playerPos.x + ray.x) * HUD_MAP_SIZE / (float)MAP_PIXEL_WIDTH) + mapXOffset, (int)((playerPos.y + ray.y) * HUD_MAP_SIZE / (float)MAP_PIXEL_WIDTH) + mapYOffset);
-		if (slowRenderMode) {
-			setDrawColor(200, 0, 0, 255);
-			drawLine((int)(playerPos.x * HUD_MAP_SIZE / (float)MAP_PIXEL_WIDTH) + mapXOffset, (int)(playerPos.y * HUD_MAP_SIZE / (float)MAP_PIXEL_HEIGHT + mapYOffset),
-					(int)((playerPos.x + PLAYER_SIZE * playerDir.x) * HUD_MAP_SIZE / (float)MAP_PIXEL_WIDTH) + mapXOffset, (int)((playerPos.y + PLAYER_SIZE * playerDir.y) * HUD_MAP_SIZE / (float)MAP_PIXEL_WIDTH) + mapYOffset);
-			setDrawColor(200, 100, 50, 255);
-			SDL_Delay(2);
-			presentRenderer();
-		}
+        if (slowRenderMode) {
+            setDrawColor(200, 0, 0, 255);
+            drawLine((int)(playerPos.x * HUD_MAP_SIZE / (float)MAP_PIXEL_WIDTH) + mapXOffset, (int)(playerPos.y * HUD_MAP_SIZE / (float)MAP_PIXEL_HEIGHT + mapYOffset),
+                    (int)((playerPos.x + PLAYER_SIZE * playerDir.x) * HUD_MAP_SIZE / (float)MAP_PIXEL_WIDTH) + mapXOffset, (int)((playerPos.y + PLAYER_SIZE * playerDir.y) * HUD_MAP_SIZE / (float)MAP_PIXEL_WIDTH) + mapYOffset);
+            setDrawColor(200, 100, 50, 255);
+            SDL_Delay(2);
+            presentRenderer();
+        }
     }
 
     /* Draw player line */
@@ -61,8 +61,8 @@ void renderOverheadMap() {
     drawLine((int)(playerPos.x * HUD_MAP_SIZE / (float)MAP_PIXEL_WIDTH) + mapXOffset, (int)(playerPos.y * HUD_MAP_SIZE / (float)MAP_PIXEL_HEIGHT + mapYOffset),
             (int)((playerPos.x + PLAYER_SIZE * playerDir.x) * HUD_MAP_SIZE / (float)MAP_PIXEL_WIDTH) + mapXOffset, (int)((playerPos.y + PLAYER_SIZE * playerDir.y) * HUD_MAP_SIZE / (float)MAP_PIXEL_WIDTH) + mapYOffset);
 
-	if (slowRenderMode)
-		slowRenderMode = 0;
+    if (slowRenderMode)
+        slowRenderMode = 0;
     setDrawColor(128, 128, 128, 255);
-	presentRenderer();
+    presentRenderer();
 }

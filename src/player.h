@@ -15,9 +15,34 @@ extern char turningRight;
 extern char playerIsRunning;
 
 /* Functions */
-void setupPlayer();
+
+/**
+ * Initialize the player.
+ */
+void initPlayer();
+
+/**
+ * Update the player for the current frame.
+ */
 void updatePlayer();
-static void movePlayer(float dx, float dy);
-static int clipMovement(float dx, float dy);
+
+/**
+ * Move the player by a given movement vector.
+ *
+ * dx: The x component of the movement vector.
+ * dy: The y component of the movement vector.
+ */
+void movePlayer(float dx, float dy);
+
+/**
+ * Check if a given movement vector intersects with the world
+ * and should be clipped.
+ *
+ * dx: The x component of the movement vector to check.
+ * dy: The y component of the movement vector to check.
+ *
+ * Returns: Zero if the vector should not be clipped, non-zero otherwise.
+ */
+int clipMovement(float dx, float dy);
 
 #endif /* PLAYER_H */
