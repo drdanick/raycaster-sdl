@@ -1,5 +1,5 @@
-#ifndef ASSIGNMENT_H
-#define ASSIGNMENT_H
+#ifndef CONFIG_H
+#define CONFIG_H
 
 #include "gfx.h"
 #include "linalg.h"
