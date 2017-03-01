@@ -1,0 +1,15 @@
+# Mac files
+.DS_Store
+
+# Vim
+*.swp
+
+# CC
+a.out
+*.o
+*.s
+*.gch
+
+# Raycaster binaries
+raycaster
+raycaster.exe
