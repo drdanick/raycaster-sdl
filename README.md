@@ -1,6 +1,9 @@
 Raycaster-SDL
 =============
 
+Overview
+--------
+
 This project is a typical textured Ray Casting engine akin to games like Wolfenstein 3D, Blake Stone, etc.
 
 The crux of this program is not that it is an efficient implementation, or that it contains special rendering
