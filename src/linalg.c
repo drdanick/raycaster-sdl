@@ -45,7 +45,7 @@ void matrixVectorMultiply(Matrix3f* mat, Vector3f* vec) {
 }
 
 void matrixMatrixMultiply(Matrix3f* mat1, Matrix3f* mat2) {
-    int row, col, i;
+    int row, col;
     Matrix3f retMat;
 
     for(row = 0; row < 3; row++) {

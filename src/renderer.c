@@ -93,7 +93,6 @@ void renderProjectedScene() {
         float drawLength;
         RayType rtype;
         Vector3f ray;
-        Uint32* texture;
 
         if(homogeneousVectorMagnitude(&rays[i].hRay) < homogeneousVectorMagnitude(&rays[i].vRay)) {
             Vector3f coords;
