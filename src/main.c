@@ -56,51 +56,53 @@ void render() {
 
 void consumeSDLEvents() {
     SDL_Event event;
+    char keyIsDown;
 
     while(SDL_PollEvent(&event)) {
+        keyIsDown = (event.type == SDL_KEYDOWN);
         switch(event.type) {
             case SDL_KEYUP:
             case SDL_KEYDOWN:
                 switch(event.key.keysym.sym) {
                     case SDLK_UP:
-                        movingForward = (event.type == SDL_KEYDOWN);
+                        movingForward = keyIsDown;
                         break;
                     case SDLK_DOWN:
-                        movingBack = (event.type == SDL_KEYDOWN);
+                        movingBack = keyIsDown;
                         break;
                     case SDLK_LEFT:
-                        turningLeft = (event.type == SDL_KEYDOWN);
+                        turningLeft = keyIsDown;
                         break;
                     case SDLK_RIGHT:
-                        turningRight = (event.type == SDL_KEYDOWN);
+                        turningRight = keyIsDown;
                         break;
                     case SDLK_LSHIFT:
                     case SDLK_RSHIFT:
-                        playerIsRunning = (event.type == SDL_KEYDOWN);
+                        playerIsRunning = keyIsDown;
                         break;
                     case SDLK_ESCAPE:
                         gameIsRunning = FALSE;
                         break;
                     case SDLK_t:
-                        if(event.type == SDL_KEYDOWN) textureMode = (textureMode + 1) % 2;
+                        if(keyIsDown) textureMode = (textureMode + 1) % 2;
                         break;
                     case SDLK_m:
-                        if(event.type == SDL_KEYDOWN) showMap = !showMap;
+                        if(keyIsDown) showMap = !showMap;
                         break;
                     case SDLK_f:
-                        if(event.type == SDL_KEYDOWN) distortion = !distortion;
+                        if(keyIsDown) distortion = !distortion;
                         break;
                     case SDLK_r:
-                        if(event.type == SDL_KEYDOWN) slowRenderMode = !slowRenderMode;
+                        if(keyIsDown) slowRenderMode = !slowRenderMode;
                         break;
                     case SDLK_c:
-                        if(event.type == SDL_KEYDOWN) rayCastMode = (rayCastMode + 1) % 3;
+                        if(keyIsDown) rayCastMode = (rayCastMode + 1) % 3;
                         break;
                     case SDLK_LEFTBRACKET:
-                        if(event.type == SDL_KEYDOWN && distFromViewplane - 20.0f > 100.0f) distFromViewplane -= 20.0f;
+                        if(keyIsDown && distFromViewplane - 20.0f > 100.0f) distFromViewplane -= 20.0f;
                         break;
                     case SDLK_RIGHTBRACKET:
-                        if(event.type == SDL_KEYDOWN) distFromViewplane += 20.0f;
+                        if(keyIsDown) distFromViewplane += 20.0f;
                         break;
                     default:
                         break;
